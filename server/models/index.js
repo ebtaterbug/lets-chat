@@ -1,5 +1,6 @@
 const User = require('./User');
-const Server = require('./Server');
+const Message = require('./Message');
 const Channel = require('./Channel');
+const Server = require('./Server');
 
-module.exports = { User, Server, Channel };
+module.exports = { User, Message, Channel };

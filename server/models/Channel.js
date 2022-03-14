@@ -1,13 +1,8 @@
-const { model } = require('mongoose');
-const mongoose = require("mongoose");
+const { Schema, model } = require('mongoose');
+const messageSchema = require('./Message');
 
-const channelSchema = new mongoose.Schema({
-    message: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Message",
-        },
-    ],
+const channelSchema = new Schema({
+    messages: [messageSchema],
     channel_name: {
         type: String,
         required: true,

@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Channel } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -23,6 +23,10 @@ const resolvers = {
         user: async (parent, { username }) => {
             return User.findOne({ username })
             .select('-__v -password')
+        },
+        channels: async () => {
+          return Channel.find()
+          .select('-__v');
         }
     },
     Mutation: {
@@ -47,6 +51,27 @@ const resolvers = {
           
             const token = signToken(user);
             return { token, user };
+        },
+        addChannel: async (parent, args, context) => {
+            if (context.user) {
+              const channel = await Channel.create({ ...args, username: context.user.username });
+              return channel;
+            }
+          
+            throw new AuthenticationError('You need to be logged in!');
+        },
+        addMessage: async (parent, { messageId, text }, context) => {
+            if (context.user) {
+              const updatedMessage = await Message.findOneAndUpdate(
+                { _id: messageId },
+                { $push: { messagess: { text, username: context.user.username } } },
+                { new: true, runValidators: true }
+              );
+          
+              return updatedMessage;
+            }
+          
+            throw new AuthenticationError('You need to be logged in!');
         }
     }
 };

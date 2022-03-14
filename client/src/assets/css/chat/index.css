@@ -1,0 +1,13 @@
+.main-chats {
+  height: calc(100% - 80px);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  background-color: white;
+  box-shadow: 1px 1px 5px rgb(214, 214, 214);
+  display: flex;
+}
+
+@import './chatroom.css';
+@import './send-message.css';
+@import './chat-item.css';
+@import './chat-thread.css';

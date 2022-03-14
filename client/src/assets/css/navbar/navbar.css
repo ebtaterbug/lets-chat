@@ -1,0 +1,22 @@
+.navbar {
+  width: 280px;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+.navbar_workspaces {
+  background-color: #35003a;
+  color: white;
+  padding: 15px 10px;
+  box-sizing: border-box;
+  min-width: 80px
+}
+
+.navbar_channels {
+  padding: 15px 10px;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #f6f5f5;
+}

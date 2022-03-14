@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost'
-import Navbar from './components/Navbar';
+import Main from './containers/main/index'
 
 
 const client = new ApolloClient({
@@ -23,7 +23,7 @@ function App() {
   <ApolloProvider  client ={client}>
        <Router>
       <>
-        <Navbar />
+        <Main />
       </>
     </Router>
   </ApolloProvider>

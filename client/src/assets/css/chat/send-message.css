@@ -1,0 +1,17 @@
+.send-message {
+  height: 80px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0px;
+  left: 30px;
+  right: 40px;
+  background-color: white;
+}
+
+.send-message-input {
+  border: 1px solid gray;
+  padding: 15px;
+  height: 60px;
+  border-radius: 10px;
+  width: 100%;
+}

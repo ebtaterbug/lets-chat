@@ -1,8 +1,10 @@
+import React from 'react';
+
 import Chats from "../chat";
 import Header from "../header/header";
 import Navbar from "../navbar";
 
-function App() {
+function Main() {
   return (
     <div className="main-container">
       <Navbar/>
@@ -14,4 +16,4 @@ function App() {
   );
 }
 
-export default App;
+export default Main;

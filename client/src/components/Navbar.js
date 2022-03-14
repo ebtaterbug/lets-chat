@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './Signup';
 import LoginForm from './Login';
+import AppLogo from '../assets/images/telegram.png'
 
 import Auth from '../utils/auth';
 
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
-
   return (
     <>
       <Navbar bg='dark' variant='dark' expand='lg'>
@@ -25,12 +25,13 @@ const AppNavbar = () => {
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Signup</Nav.Link>
+                <Nav.Link onClick={() => setShowModal(true)}>Login / Signup</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <p class="text-center-xl"><img src={AppLogo} alt='app logo'/>Let's Chat</p>
       {/* set modal data up */}
       <Modal
         size='lg'

@@ -1,12 +1,29 @@
-.navbar {
+.left-nav {
   width: 280px;
   height: 100%;
-  display: flex;
+  /* display: flex; */
   align-items: stretch;
   box-sizing: border-box;
+  padding: 0;
+  background-color: #04394C;
+
 }
 
-.navbar_workspaces {
+.left-nav_app-logo {
+  font-size: 30px;
+  font-weight: bold;
+  border-bottom: 1px solid gray;
+  padding: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.left-nav_app-logo img{
+  width: 60px;
+}
+
+.left-nav_workspaces {
   background-color: #35003a;
   color: white;
   padding: 15px 10px;
@@ -14,9 +31,24 @@
   min-width: 80px
 }
 
-.navbar_channels {
+.left-nav_channels {
+  /* background-color: #35003a; */
   padding: 15px 10px;
   box-sizing: border-box;
   width: 100%;
-  background-color: #f6f5f5;
+  /* background-color: #f6f5f5; */
+  color: white;
+}
+
+.left-nav_channel-name {
+  padding: 8px 10px;
+  font-size: 18px;
+  color: rgb(167, 167, 167);
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.left-nav_channel-name:hover {
+  color: white;
+  background-color: #024b66 ;
 }

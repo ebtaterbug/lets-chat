@@ -26,6 +26,10 @@ code {
   height: 100%;
 }
 
+p {
+  margin-bottom: 0px !important
+}
+
 
 @import './main/main.css';
 @import './navbar/navbar.css';

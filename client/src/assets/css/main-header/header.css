@@ -8,11 +8,17 @@
 
 .header-user-greetings {
   font-weight: 500;
+  margin-left: 30px;
+  font-size: 19px;
+}
+
+.header-user-greetings p{
+  font-size: 14px;
 }
 
 .header-options {
   display: flex;
-  width: 400px;
+  width: 300px;
   justify-content: space-between;
   align-items: center;
   margin-right: 20px;
@@ -29,19 +35,9 @@
   color: black;
 }
 
-.header-options-settings {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid gray;
-}
-
-.header-options-profile {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 2px solid gray;
+.header-options-logout {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }

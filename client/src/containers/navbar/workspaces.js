@@ -2,7 +2,7 @@ import React from 'react';
 
 function Workspaces() {
   return (  
-    <div className='navbar_workspaces'>
+    <div className='left-nav_workspaces'>
       spaces
     </div>
   );

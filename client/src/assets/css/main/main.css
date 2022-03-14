@@ -11,3 +11,22 @@
   background-color: #f6f5f5;
   overflow: hidden;
 }
+
+.text-center-xl {
+  font-size: 85px;
+  font-weight: bold;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-center-xl img {
+  width: 200px;
+  margin-right: 15px;
+}
+
+.navbar {
+  background-color: #04394C !important;
+  color: white !important;
+}

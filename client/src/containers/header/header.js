@@ -8,12 +8,7 @@ class Header extends Component {
           Hey, Welcome back!
           <p>Stay up to date with your team</p>
         </div>
-        <div className='header-options'>
-          <div className='header-options-search'>
-            <input type='text' placeholder='Search here'/>
-          </div>
-          <div onClick={Auth.logout }className='header-options-logout'>Logout</div>
-        </div>
+        <div onClick={Auth.logout }className='header-options-logout'>Logout</div>
       </div>
     )
   }

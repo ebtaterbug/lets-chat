@@ -15,3 +15,12 @@ h6 {
   font-weight: 300;
   font-style: italic;
 }
+
+.header-options-logout {
+  margin-right: 2.2%;
+  font-size: large;
+}
+
+.bottom {
+  margin-top: 2%;
+}

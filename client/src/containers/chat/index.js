@@ -2,7 +2,6 @@ import React from 'react';
 import ChatsHeader from './chat-header';
 import ChatItems  from './chat-items-list';
 import SendMessage from './chat-send-message';
-import Thread from './chat-thread';
 import { channels } from '../../store/mock-data'
 
 class Chats extends React.Component {
@@ -27,9 +26,6 @@ class Chats extends React.Component {
           <ChatItems toggleCurrentThread = {this.toggleCurrentThread} messages = {channelMessages}/>
           <SendMessage />
         </div>
-        {currentTread ? 
-        <Thread onClose={this.toggleCurrentThread} currentMessage = {currentTread} /> : null
-        }
       </div>
     );
   }

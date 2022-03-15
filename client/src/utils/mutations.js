@@ -23,3 +23,12 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_CHANNEL = gql`
+  mutation addChannel($channelName: String!) {
+    addChannel(channelName: $channelName) {
+      _id
+      channelName
+    }
+  }
+`;

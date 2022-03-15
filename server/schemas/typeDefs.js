@@ -45,3 +45,5 @@ const typeDefs = gql`
 
 // export the typeDefs
 module.exports = typeDefs;
+
+// messages(channel_name: String!): Message

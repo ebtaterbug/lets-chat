@@ -5,7 +5,7 @@ const messageSchema = new Schema({
         type: String,
         required: true
     },
-    author: {
+    username: {
         type: String,
         required: true
     },

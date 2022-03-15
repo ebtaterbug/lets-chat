@@ -60,15 +60,15 @@ const resolvers = {
           
             throw new AuthenticationError('You need to be logged in!');
         },
-        addMessage: async (parent, { messageId, text }, context) => {
+        addMessage: async (parent, { channelId, text }, context) => {
             if (context.user) {
-              const updatedMessage = await Message.findOneAndUpdate(
-                { _id: messageId },
-                { $push: { messagess: { text, username: context.user.username } } },
+              const updatedChannel = await Channel.findOneAndUpdate(
+                { _id: channelId },
+                { $push: { messages: { text, username: context.user.username } } },
                 { new: true, runValidators: true }
               );
           
-              return updatedMessage;
+              return updatedChannel;
             }
           
             throw new AuthenticationError('You need to be logged in!');

@@ -26,7 +26,6 @@ const Channels = () => {
     const handleFormSubmit = async event => {
       event.preventDefault();
   
-      // use try/catch instead of promises to handle errors
       try {
         const { data } = await addChannel({
           variables: { ...formState }
@@ -48,7 +47,7 @@ const Channels = () => {
         ))}
 
         <form className='header-options-search bottom' onSubmit={handleFormSubmit}>
-          <input 
+          <input
             type='text' 
             name='channelName' 
             id='channelName' 

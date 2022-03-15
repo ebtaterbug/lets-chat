@@ -26,8 +26,14 @@ const resolvers = {
         },
         channels: async () => {
           return Channel.find()
-          .select('-__v');
-        }
+          .select('-__v')
+          .populate('messages');
+        },
+        channel: async (parent, { channelName }) => {
+          return Channel.findOne({ channelName })
+          .select('-__v')
+          .populate('messages');
+        },
     },
     Mutation: {
         addUser: async (parent, args) => {
@@ -60,10 +66,10 @@ const resolvers = {
           
             throw new AuthenticationError('You need to be logged in!');
         },
-        addMessage: async (parent, { channelId, text }, context) => {
+        addMessage: async (parent, { channelName, text }, context) => {
             if (context.user) {
               const updatedChannel = await Channel.findOneAndUpdate(
-                { _id: channelId },
+                { channelName: channelName },
                 { $push: { messages: { text, username: context.user.username } } },
                 { new: true, runValidators: true }
               );

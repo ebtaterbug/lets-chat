@@ -32,3 +32,12 @@ export const ADD_CHANNEL = gql`
     }
   }
 `;
+
+export const ADD_MESSAGE = gql `
+  mutation addMessage($channelName: String!, $text: String!) {
+    addMessage(channelName: $channelName, text: $text) {
+      _id
+      text
+    }
+  }
+`

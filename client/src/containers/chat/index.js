@@ -34,5 +34,5 @@ class Chats extends React.Component {
     );
   }
 }
- 
+
 export default Chats;

@@ -1,33 +1,24 @@
-import React, { Component } from 'react'
-import { channels } from '../../store/mock-data'
+import React from 'react'
+import { useQuery } from '@apollo/client';
+import { QUERY_CHANNELS } from '../../utils/queries';
 
-class Channels extends Component {
-  render() {
-    const { onChannelChange, currentChannel } = this.props
-    const channelIds = Object.keys(channels)
+const Channels = () => {
+    const { data } = useQuery(QUERY_CHANNELS);
+    const channels = data?.channels || []
+
+    console.log(channels)
     return (
       <div className='left-nav_channels'>
-        {
-          channelIds && channelIds.map(channelId => {
-            const isCannelSelected = currentChannel === channelId
-            return (
-                <div 
-                  key={channelId} 
-                  onClick={() => onChannelChange(channelId)} 
-                  className='left-nav_channel-name'
-                  style={{
-                    color: isCannelSelected ? 'white' : '',
-                    fontSize: isCannelSelected ? '19px' : '18px'
-                  }}
-                >
-                  {channels[channelId].channelName}
-              </div>
-            )
-          })
-        }
+        
+        {channels && channels.map(channel => (
+            <div key={channel._id} className='left-nav_channel-name'>
+              {channel.channelName}
+            </div>
+        ))}
+
       </div>
     )
-  }
 }
+
 
 export default Channels

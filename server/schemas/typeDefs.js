@@ -12,7 +12,7 @@ const typeDefs = gql`
 
   type Channels {
     _id: ID
-    channel_name: String
+    channelName: String
     messages: [Message]
   }
 
@@ -20,7 +20,7 @@ const typeDefs = gql`
     _id: ID
     text: String
     createdAt: String
-    author: String
+    username: String
   }
 
   type Query {
@@ -33,8 +33,8 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addChannel(channel_name: String!): Channels
-    addMessage(channelId: ID!, text: String!): Message
+    addChannel(channelName: String!): Channels
+    addMessage(channelId: ID!, text: String!, username: String!): Message
   }
 
   type Auth {
@@ -45,5 +45,3 @@ const typeDefs = gql`
 
 // export the typeDefs
 module.exports = typeDefs;
-
-// messages(channel_name: String!): Message

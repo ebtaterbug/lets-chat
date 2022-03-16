@@ -1,4 +1,4 @@
-const { User, Channel } = require('../models');
+const { User, Message } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -24,16 +24,11 @@ const resolvers = {
             return User.findOne({ username })
             .select('-__v -password')
         },
-        channels: async () => {
-          return Channel.find()
-          .select('-__v')
-          .populate('messages');
-        },
-        channel: async (parent, { channelName }) => {
-          return Channel.findOne({ channelName })
-          .select('-__v')
-          .populate('messages');
-        },
+        // get all messages
+        messages: async () => {
+            return Message.find()
+            .select('-v');
+        }
     },
     Mutation: {
         addUser: async (parent, args) => {
@@ -58,23 +53,11 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        addChannel: async (parent, args, context) => {
+        addMessage: async (parent, args, context) => {
             if (context.user) {
-              const channel = await Channel.create({ ...args, username: context.user.username });
-              return channel;
-            }
-          
-            throw new AuthenticationError('You need to be logged in!');
-        },
-        addMessage: async (parent, { channelName, text }, context) => {
-            if (context.user) {
-              const updatedChannel = await Channel.findOneAndUpdate(
-                { channelName: channelName },
-                { $push: { messages: { text, username: context.user.username } } },
-                { new: true, runValidators: true }
-              );
-          
-              return updatedChannel;
+              const message = await Message.create({ ...args, username: context.user.username });
+              
+              return message;          
             }
           
             throw new AuthenticationError('You need to be logged in!');

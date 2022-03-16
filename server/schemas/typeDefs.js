@@ -29,13 +29,14 @@ const typeDefs = gql`
     user(username: String!): User
     channels: [Channels]
     channel(channelName: String!): Channels
+    messages: [Message]
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addChannel(channelName: String!): Channels
-    addMessage(channelName: String!, text: String!): Message
+    addMessage(text: String!): Message
   }
 
   type Auth {

@@ -5,7 +5,7 @@ import Auth from '../../utils/auth';
 
 const SendMessage = () => {
   
-  // Add Channels
+  // Add Message
   const [formState, setFormState] = useState({ channelName: 'General', text: '' });
   const [addMessage, { error }] = useMutation(ADD_MESSAGE);
 
@@ -27,7 +27,7 @@ const SendMessage = () => {
       const { data } = await addMessage({
         variables: { ...formState }
       });
-    
+
       Auth.login(data.addMessage.token);
     } catch (e) {
       console.error(e);

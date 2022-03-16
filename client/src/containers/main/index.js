@@ -12,11 +12,11 @@ function Main() {
 
   return (
     <div className="main-container">
-      <Navbar onChannelChange={changeCurrentChannel} currentChannel = {currentChannel}/>
-      <div className="main-body">
-        <Header/>
-        <Chats currentChannel = {currentChannel}/>
-      </div>
+        <Navbar onChannelChange={changeCurrentChannel} currentChannel = {currentChannel}/>
+        <div className="main-body">
+          <Header/>
+          <Chats currentChannel = {currentChannel}/>
+        </div>
     </div>
   );
 }

@@ -5,6 +5,11 @@ export const QUERY_CHANNELS = gql`
         channels {
             _id
             channelName
+            messages {
+                _id
+                text
+                username
+            }
         }
     }
 `;

@@ -27,6 +27,7 @@ export const ADD_USER = gql`
 export const ADD_CHANNEL = gql`
   mutation addChannel($channelName: String!) {
     addChannel(channelName: $channelName) {
+      token
       _id
       channelName
     }
@@ -34,10 +35,12 @@ export const ADD_CHANNEL = gql`
 `;
 
 export const ADD_MESSAGE = gql `
-  mutation addMessage($channelName: String!, $text: String!) {
-    addMessage(channelName: $channelName, text: $text) {
+  mutation addMessage($text: String!) {
+    addMessage(text: $text) {
+      token
       _id
       text
+      username
     }
   }
 `
